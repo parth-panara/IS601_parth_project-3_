@@ -33,8 +33,6 @@ def add_user(application):
         db.session.commit()
 
 
-
-
 @pytest.fixture()
 def client(application):
     """This makes the http client"""

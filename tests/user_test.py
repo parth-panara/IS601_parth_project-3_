@@ -2,7 +2,7 @@ import logging
 
 from app import db
 from app.db.models import User, Song
-from faker import Faker
+
 
 def test_adding_user(application):
     log = logging.getLogger("myApp")
