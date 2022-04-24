@@ -28,12 +28,6 @@ def after_request_logging(response):
 
 @log_con.before_app_first_request
 def setup_logs():
-    #def configure_logging():
-        #logging.config.dictConfig(LOGGING_CONFIG)
-        #log = logging.getLogger("myApp")
-        #log.info("My App Logger")
-        #log = logging.getLogger("myerrors")
-        #log.info("This broke")
 
     # set the name of the apps log folder to logs
     logdir = config.Config.LOG_DIR
