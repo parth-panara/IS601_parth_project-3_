@@ -16,6 +16,7 @@ songs = Blueprint('songs', __name__,
 
 @songs.route('/songs', methods=['GET'], defaults={"page": 1})
 @songs.route('/songs/<int:page>', methods=['GET'])
+
 def songs_browse(page):
     page = page
     per_page = 1000

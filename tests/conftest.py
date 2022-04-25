@@ -32,6 +32,23 @@ def add_user(application):
         db.session.add(user)
         db.session.commit()
 
+@pytest.fixture()
+def add_user(application):
+    with application.app_context():
+        #new record for one other user
+        user = User('parth@webizly.com', 'testtest')
+        db.session.add(user)
+        db.session.commit()
+
+@pytest.fixture()
+def add_user(application):
+    with application.app_context():
+        #new record for second other user
+        user = User('parth@test.com', 'testtest')
+        db.session.add(user)
+        db.session.commit()
+
+
 
 @pytest.fixture()
 def client(application):

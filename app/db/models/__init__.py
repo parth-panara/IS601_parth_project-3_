@@ -19,6 +19,8 @@ class Song(db.Model,SerializerMixin):
         self.title = title
         self.artist = artist
 
+
+
 class Location(db.Model, SerializerMixin):
     __tablename__ = 'locations'
     serialize_only = ('title', 'longitude', 'latitude')

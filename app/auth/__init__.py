@@ -102,7 +102,7 @@ def edit_account():
 
 @auth.route('/users')
 @login_required
-@admin_required
+
 def browse_users():
     data = User.query.all()
     titles = [('email', 'Email'), ('registered_on', 'Registered On')]

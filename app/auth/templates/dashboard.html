@@ -3,6 +3,10 @@
     {% from 'bootstrap5/form.html' import render_form, render_field, render_form_row %}
     <div id="row">
     <h2>Dashboard</h2>
-    <p>Welcome: {{ current_user.email }}</p>
+    <p>Welcome: {{ current_user.email }}!</p>
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0" style="width: 1295px;">
+            <img src="/static/images/dashboardPic.jpg"
+                 style="width:100%" alt=""><br>
+        </div>
     </div>
 {% endblock %}

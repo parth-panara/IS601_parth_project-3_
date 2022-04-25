@@ -1,3 +1,4 @@
+"""This test checks the USER, SONG, TITLE"""
 import logging
 
 from app import db
@@ -40,6 +41,50 @@ def test_adding_user(application):
         db.session.delete(user)
         assert db.session.query(User).count() == 0
         assert db.session.query(Song).count() == 0
+
+
+def test_adding_one_user(application):
+    log = logging.getLogger("myApp")
+    with application.app_context():
+        assert db.session.query(User).count() == 0
+        assert db.session.query(Song).count() == 0
+        # showing how to add a record
+        # create a record
+        user = User('parth@webizly.com', 'testtest')
+        # add it to get ready to be committed
+        db.session.add(user)
+
+        user = User.query.filter_by(email='parth@webizly.com').first()
+        log.info(user)
+        # asserting that the user retrieved is correct
+        assert user.email == 'parth@webizly.com'
+        # this is how you get a related record ready for insert
+        user.songs = [Song("testme", "songName"), Song("testX", "testY")]
+        # commit is what saves the songs
+        db.session.commit()
+        assert db.session.query(Song).count() == 2
+
+
+def test_adding_second_user(application):
+    log = logging.getLogger("myApp")
+    with application.app_context():
+        assert db.session.query(User).count() == 0
+        assert db.session.query(Song).count() == 0
+        # showing how to add a record
+        # create a record
+        user = User('parth@test.com', 'testtest')
+        # add it to get ready to be committed
+        db.session.add(user)
+
+        user = User.query.filter_by(email='parth@test.com').first()
+        log.info(user)
+        # asserting that the user retrieved is correct
+        assert user.email == 'parth@test.com'
+        # this is how you get a related record ready for insert
+        user.songs = [Song("mytest", "testSongName"), Song("testA", "testB")]
+        # commit is what saves the songs
+        db.session.commit()
+        assert db.session.query(Song).count() == 2
 
 
 
