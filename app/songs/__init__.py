@@ -16,6 +16,7 @@ songs = Blueprint('songs', __name__,
 
 @songs.route('/songs', methods=['GET'], defaults={"page": 1})
 @songs.route('/songs/<int:page>', methods=['GET'])
+
 def songs_browse(page):
     page = page
     per_page = 1000
@@ -41,7 +42,7 @@ def songs_upload():
         with open(filepath) as file:
             csv_file = csv.DictReader(file)
             for row in csv_file:
-                list_of_songs.append(Song(row['Name'],row['Artist']))
+                list_of_songs.append(Song(row['Name'],row['Artist'],row['Genre'],row['Year']))
 
         current_user.songs = list_of_songs
         db.session.commit()
