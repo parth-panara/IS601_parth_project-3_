@@ -1,4 +1,4 @@
-"""This test the logfiles"""
+"""This test the all logfiles"""
 
 import os
 from app.logging_config import log_con, LOGGING_CONFIG
