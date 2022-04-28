@@ -1,6 +1,66 @@
 body {
-font-size: 200%;
+   font-size: 120%;
 }
-.color_base{
-    background-color: #000066
+
+
+/*------------------------------ Navbar Custom -------------------------------*/
+.navbar-default {
+    background-color: #031d38 !important;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white !important;
+    font-size: large !important;
+}
+
+.navbar {
+    border: 0;
+    box-shadow: none;
+}
+
+
+.nav-item {
+    color:white !important;
+    font-size: large;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fc0254 !important;
+}
+
+.fs-20 {
+	font-size: 100%;
+   color: white  !important;
+}
+
+
+.navbar-toggler {
+    border: 2px solid #ffffff !important;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link
+{
+    background-color: white;
+    color: white;
+}
+
+.nav-pills .nav-link, .nav-pills .show>.nav-link
+{
+    color: white;
+}
+
+
+/*------------------------- Font sizes and colors-----------------*/
+
+.copyrightText {
+    font-size: 14px;
+}
+
+.textSmall {
+    font-size: 16px;
+}
+.homeText {
+    color: #fc0254;
 }
