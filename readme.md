@@ -11,7 +11,7 @@
 
 ## Project Description
 
-We must allow users to log in and upload a CSV of their playlist and have it displayed on the dashboard.
+This is Project 3 of IS 601. A project is about allow users to log in and upload a CSV of their playlist and have it displayed on the dashboard.
 
 Requirements:
 
@@ -21,4 +21,15 @@ Requirements:
 4. We must have a test for login, a test for registration, a test for accessing the dashboard as a logged-in user, and a test for denying access to the dashboard, and denying access to uploading the CSV file
 
 5. Write a log message for each request and response that records the method, route, time, request address.
+
+
+## Key component of this projects:
+* [Dockerfile](https://github.com/Milan-36/PythonFlaskWebsite/blob/master/app/Dockerfile), and [docker-compose](https://github.com/Milan-36/PythonFlaskWebsite/blob/master/docker-compose.yml)
+* [app.py](https://github.com/Milan-36/PythonFlaskWebsite/blob/master/app/app.py)
+* [Github](https://github.com/Milan-36/PythonFlaskWebsite)
+* [PyCharm](https://www.jetbrains.com/pycharm/)
+* [MySql](https://www.mysql.com/)
+* [Python](https://www.python.org/)
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+*
 
