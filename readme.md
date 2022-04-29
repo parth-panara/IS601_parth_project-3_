@@ -31,5 +31,8 @@ Requirements:
 * [MySql](https://www.mysql.com/)
 * [Python](https://www.python.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.1.x/)
-*
+* [pytest](https://docs.pytest.org/en/7.1.x/)
+* [WTForms](https://wtforms.readthedocs.io/en/3.0.x/)
+* [Bootstrap](https://getbootstrap.com/)
+* [SQLAlchemy](https://www.sqlalchemy.org/)
 
