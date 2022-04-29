@@ -1,5 +1,8 @@
+import logging
+
 from flask import Blueprint, render_template, redirect, url_for, flash,current_app
 from flask_login import login_user, login_required, logout_user, current_user
+from jinja2 import TemplateNotFound
 from werkzeug.security import generate_password_hash
 
 from app.auth.decorators import admin_required
@@ -67,7 +70,10 @@ def logout():
 @auth.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    try:
+        return render_template('dashboard.html')
+    except TemplateNotFound:
+         return render_template('403.html')
 
 
 @auth.route('/profile', methods=['POST', 'GET'])

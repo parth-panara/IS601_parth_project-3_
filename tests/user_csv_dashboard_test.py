@@ -33,7 +33,7 @@ def test_adding_deleting_user(application):
     db.session.delete(user)
     assert db.session.query(User).count() == 0
 
-# Test to check If the csv file is located in 'uploads' folder and it's considered upload request
+# Test to check If the csv file is located in 'uploads' folder, considered upload request, and readable
 
 def test_file_uploads(application, add_user):
     log = logging.getLogger("myApp")
@@ -72,12 +72,27 @@ def user_logout(client):
 # Test to check when access deny to user to the song Management at dashboard
 
 def test_access_song_manage_denied(client):
-    response = client.get("/browse_songs")
+    response = client.get("/browse_songs", follow_redirects=False)
     assert response.status_code == 404
 
 # Test to check when access deny to user to upload the csv songs file at dashboard
 
 def test_upload_csvfile_access_denied(client):
-    response = client.get("/upload")
+    response = client.get("/upload", follow_redirects=False)
     assert response.status_code == 404
 
+# Test to check if user is unable to reach at dashboard
+
+def user_dashboard_access_deny(client):
+
+    response = client.get("/dashboard")
+    assert response.status_code == 403
+    return client.get('/dashboard', follow_redirects=False)
+
+
+# Test to check if user is approved and welcomed at the dashboard
+def user_dashboard_access_approved(client):
+
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    return client.get('/dashboard', follow_redirects=True)

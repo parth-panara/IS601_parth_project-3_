@@ -10,4 +10,4 @@
 2022-04-28 17:00:15,750 [INFO] app: Browse page loading
 2022-04-28 18:42:15,094 [INFO] flask_wtf.csrf: The CSRF token is missing.
 2022-04-28 18:49:58,982 [INFO] flask_wtf.csrf: The CSRF token is missing.
-2022-04-28 19:12:45,013 [INFO] flask_wtf.csrf: The CSRF token is missing.
+2022-04-29 06:55:01,969 [INFO] app: Browse page loading
