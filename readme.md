@@ -1,11 +1,11 @@
 # Project Setup
 
-[![Production Workflow](https://github.com/kaw393939/docker_flask/actions/workflows/prod.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/prod.yml)
+[![Production Workflow 1](https://github.com/parth-panara/IS601_parth_project-3_/actions/workflows/prod.yml/badge.svg)](https://github.com/parth-panara/IS601_parth_project-3_/actions/workflows/prod.yml)
 
 * [Production Deployment](https://kwilliam-prod.herokuapp.com/)
 
 
-[![Development Workflow](https://github.com/kaw393939/docker_flask/actions/workflows/dev.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/dev.yml)
+[![Development Workflow 3.8](https://github.com/parth-panara/IS601_parth_project-3_/actions/workflows/dev.yml/badge.svg)](https://github.com/parth-panara/IS601_parth_project-3_/actions/workflows/dev.yml)
 
 * [Developmental Deployment](https://kwilliam-dev.herokuapp.com/)
 
