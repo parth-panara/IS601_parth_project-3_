@@ -59,7 +59,7 @@ def create_app():
     "methods": ["OPTIONS", "GET", "POST"],
     }
     CORS(app, resources={"/api/*": api_v1_cors_config})
-    # Run once at startup:
+     # Run once at startup:
     return app
 
 

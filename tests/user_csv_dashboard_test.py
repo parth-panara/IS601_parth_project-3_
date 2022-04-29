@@ -1,4 +1,4 @@
-"""This test checks the USER's entry, exit, access deny, and file upload"""
+"""This test checks the USER's entry & exit after login, access deny, and csv file upload, processing"""
 import os
 import pytest
 from app import db
@@ -33,7 +33,40 @@ def test_adding_deleting_user(application):
     db.session.delete(user)
     assert db.session.query(User).count() == 0
 
+# Test to check If the csv file is located in 'uploads' folder and it's considered upload request
 
+def test_file_uploads(application, add_user):
+    log = logging.getLogger("myApp")
+    with application.app_context():
+        assert db.session.query(User).count() == 1
+        assert db.session.query(Song).count() == 0
+
+    root = config.Config.BASE_DIR
+    csv_file = 'music.csv'
+    filepath = root + '/..app/uploads/' + csv_file
+
+
+    uploadfolder = config.Config.UPLOAD_FOLDER
+    file_upload = os.path.join(uploadfolder, csv_file)
+    assert os.path.exists(file_upload) == True
+
+    with application.test_client() as client:
+        with open(file_upload, 'rb') as file:
+            data = {
+                'file': (file, csv_file),
+
+                }
+            resp = client.post('songs/upload', data=data)
+
+    assert resp.status_code == 302
+
+
+# this checks if the login user is able to log out from the application
+def user_logout(client):
+
+    response = client.get("/logout")
+    assert response.status_code == 200
+    return client.get('/logout', follow_redirects=True)
 
 
 # Test to check when access deny to user to the song Management at dashboard
@@ -42,8 +75,9 @@ def test_access_song_manage_denied(client):
     response = client.get("/browse_songs")
     assert response.status_code == 404
 
-# Test to check when access deny to user to upload the songs at dashboard
+# Test to check when access deny to user to upload the csv songs file at dashboard
 
 def test_upload_csvfile_access_denied(client):
     response = client.get("/upload")
     assert response.status_code == 404
+

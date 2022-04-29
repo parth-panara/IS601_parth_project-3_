@@ -40,6 +40,7 @@ def test_request_login(client):
     assert response.status_code == 200
     assert b"Login" in response.data
 
+
 def test_request_page_not_found(client):
     """This checks the error"""
     response = client.get("/page5")
