@@ -5,15 +5,21 @@ from logging.config import dictConfig
 import flask
 from flask import request, current_app
 
-#from app.logging_config.log_formatters import RequestFormatter
+from app.logging_config.log_formatters import RequestFormatter
+from app.logging_config.log_formatters import FileCSVFormatter
 from app import config
 
 log_con = flask.Blueprint('log_con', __name__)
 
 
 #@log_con.before_app_request
+
 #def before_request_logging():
 
+@log_con.before_app_request
+def CSV_file_upload():
+    log=logging.getLogger("myCSVfileuploads")
+    log.info("CSV file Uploaded")
 
 
 @log_con.after_app_request
@@ -45,6 +51,17 @@ LOGGING_CONFIG = {
         'standard': {
             'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
         },
+    'RequestFormatter': {
+            '()': 'app.logging_config.log_formatters.RequestFormatter',
+            'format': '[%(asctime)s] [%(process)s] %(remote_addr)s requested %(url)s'
+                      '%(levelname)s in %(module)s: %(message)s'
+        },
+    'FileCSVFormatter': {
+            '()': 'app.logging_config.log_formatters.FileCSVFormatter',
+            'format': '[%(asctime)s] %(levelname)s METHOD: %(request_method)s NAME OF FILE:%(filename)s FUNCTION NAME:%(funcName)s()] %(message)s LOGGER: %(remote_addr)s'
+        },
+
+
 
     },
     'handlers': {
@@ -96,7 +113,17 @@ LOGGING_CONFIG = {
             'maxBytes': 10000000,
             'backupCount': 5,
         },
+
+        'file.handler.FileCSVFormatter': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'FileCSVFormatter',
+            'filename': os.path.join(config.Config.LOG_DIR,'csvfile.log'),
+            'maxBytes': 10000000,
+            'backupCount': 5,
+        },
+
     },
+
     'loggers': {
         '': {  # root logger
             'handlers': ['default','file.handler'],
@@ -128,6 +155,14 @@ LOGGING_CONFIG = {
             'level': 'DEBUG',
             'propagate': False
         },
+        'myCSVfileuploads': {  # if __name__ == '__main__'
+            'handlers': ['file.handler.FileCSVFormatter'],
+            'level': 'INFO',
+            'propagate': False
+        },
+
+
+
 
     }
 }
