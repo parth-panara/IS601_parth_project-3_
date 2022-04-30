@@ -1,4 +1,4 @@
-"""This test checks the USER's entry & exit after login, access deny, and csv file upload, processing"""
+"""This test checks the USER's entry & exit after login, access deny, logout, and csv file upload, processing"""
 import os
 import pytest
 from app import db
@@ -33,7 +33,19 @@ def test_adding_deleting_user(application):
     db.session.delete(user)
     assert db.session.query(User).count() == 0
 
+# this checks if the dashboard path of flask form works for the logged in users
+
+
+def login_user_access_dashboard(client):
+    # this checks if the dashboard path of flask form works for the logged in users
+
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    assert b"{{render_nav_item('auth.dashboard', 'Dashboard')}}"in response.data
+    return client.get('/dashboard', follow_redirects=True)
+
 # Test to check If the csv file is located in 'uploads' folder, considered upload request, and readable
+
 
 def test_file_uploads(application, add_user):
     log = logging.getLogger("myApp")
@@ -56,12 +68,13 @@ def test_file_uploads(application, add_user):
                 'file': (file, csv_file),
 
                 }
-            resp = client.post('songs/upload', data=data)
+            resp = client.post('songs/upload',follow_redirects=True, data=data)
 
-    assert resp.status_code == 302
+    assert resp.status_code == 200
 
 
 # this checks if the login user is able to log out from the application
+
 def user_logout(client):
 
     response = client.get("/logout")
@@ -89,8 +102,16 @@ def user_dashboard_access_deny(client):
     assert response.status_code == 403
     return client.get('/dashboard', follow_redirects=False)
 
+# Test to check if user is failed to reach access, but now user is able to redirect on login page of app
 
-# Test to check if user is approved and welcomed at the dashboard
+def user_dashboard_access_deny_return_login_page(client):
+    response = client.get('dashboard', follow_redirects=False)
+    assert response.status_code == 403
+    assert b'<h2>Login</h2>' in response.data
+
+
+# Test to check if dashboard is open for all login users
+
 def user_dashboard_access_approved(client):
 
     response = client.get("/dashboard")

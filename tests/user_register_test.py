@@ -1,4 +1,4 @@
-"""This test checks the user's registration and login before entering into the account, then access to the dashboard and logout"""
+"""This test checks the user's registration and login before entering into the account, then access to the dashboard"""
 import logging
 
 from app import db
@@ -15,9 +15,9 @@ def test_user_register_in_app(client):
         'password' : new_password,
         'confirm' : new_password
     }
-    resp = client.post('register', data=data)
+    resp = client.post('register', follow_redirects=True, data=data)
 
-    assert resp.status_code == 302
+    assert resp.status_code == 200
 
     # verify new user is registered and eligible to log in the application
     registered_user = User.query.filter_by(email='parth_song@test.com').first()
@@ -32,24 +32,20 @@ def test_user_login_post_registration(client):
         'email' : 'parth_song@test.com',
         'password' : 'Mytest123#'
     }
-    resp = client.post('login', data=data)
-    assert resp.status_code == 302
+    resp = client.post('login', follow_redirects=True, data=data)
+    assert resp.status_code == 200
 
-def login_user_access_dashboard(client):
-    # this checks if the login user is able to get access at dashboard
 
-    response = client.get("/dashboard")
+
+    # Test to check Now, this above logged in user will reach to the dashboard
+
+def test_login_dashboard_welcome(client):
+    data = {
+        'email' : 'parth_song@test.com',
+        'password' : 'Mytest123#'
+    }
+    response = client.post('login', follow_redirects=True,
+            data=data)
     assert response.status_code == 200
-    assert b"{{render_nav_item('auth.dashboard', 'Dashboard')}}"in response.data
     return client.get('/dashboard', follow_redirects=True)
-
-
-
-
-
-
-
-
-
-
 
