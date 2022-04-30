@@ -248,11 +248,12 @@
 2022-04-29 06:54:53,380 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:54:53] "GET /songs/upload HTTP/1.1" 200 -
 2022-04-29 06:54:53,419 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:54:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2022-04-29 06:54:53,420 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:54:53] "[36mGET /static/images/logo.jpg HTTP/1.1[0m" 304 -
-2022-04-29 06:55:02,021 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:02] "GET /users HTTP/1.1" 200 -
-2022-04-29 06:55:02,059 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:02] "[36mGET /bootstrap/static/icons/bootstrap-icons.svg HTTP/1.1[0m" 304 -
-2022-04-29 06:55:02,075 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:02] "[36mGET /static/images/logo.jpg HTTP/1.1[0m" 304 -
-2022-04-29 06:55:02,082 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2022-04-29 06:55:08,199 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:08] "[32mGET /logout HTTP/1.1[0m" 302 -
-2022-04-29 06:55:08,222 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:08] "GET /login HTTP/1.1" 200 -
-2022-04-29 06:55:08,259 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:08] "[36mGET /static/images/logo.jpg HTTP/1.1[0m" 304 -
-2022-04-29 06:55:08,260 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 06:55:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-04-29 23:11:49,103 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:11:49] "GET /about HTTP/1.1" 200 -
+2022-04-29 23:11:49,911 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:11:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-04-29 23:11:49,911 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:11:49] "[36mGET /static/images/logo.jpg HTTP/1.1[0m" 304 -
+2022-04-29 23:11:49,915 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:11:49] "[36mGET /static/images/aboutPage_pic.jpg HTTP/1.1[0m" 304 -
+2022-04-29 23:12:01,134 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:12:01] "GET / HTTP/1.1" 200 -
+2022-04-29 23:12:01,235 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:12:01] "[36mGET /static/images/Untitled-1.jpg HTTP/1.1[0m" 304 -
+2022-04-29 23:12:01,239 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:12:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-04-29 23:12:01,242 [INFO] werkzeug: 172.29.0.1 - - [29/Apr/2022 23:12:01] "[36mGET /static/images/logo.jpg HTTP/1.1[0m" 304 -
+2022-04-29 23:19:44,476 [INFO] werkzeug:  * Detected change in '/home/myuser/tests/user_register_test.py', reloading
